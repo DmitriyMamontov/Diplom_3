@@ -1,0 +1,7 @@
+main_site = 'https://stellarburgers.nomoreparties.site'
+login_endpoint= f'{main_site}/login'
+site_forgot_password = f'{main_site}/forgot-password'
+site_reset_password = f'{main_site}/reset-password'
+history_orders = f'{main_site}/account/order-history'
+account_site = f'{main_site}/account/profile'
+order_feed_site = f'{main_site}/feed'
