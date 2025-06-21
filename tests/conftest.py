@@ -32,18 +32,9 @@ def recovery_password(driver):
 def login(driver):
     account_page = AccountPage(driver)
     account_page.main_page_loading_wait()
-    account_page.click_on_element(AccountLocators.PERSONAL_ACCOUNT)
-    account_page.send_keys_to_input(AccountLocators.EMAIL, Credentials.email)
-    account_page.send_keys_to_input(AccountLocators.PASSWORD, Credentials.password)
-    account_page.click_on_element(AccountLocators.LOG_BUTTON)
-    yield driver
-
-@pytest.fixture
-def login_go_to_order_feed(driver):
-    feed_page = FeedPage(driver)
-    feed_page.main_page_loading_wait()
-    feed_page.click_on_element(AccountLocators.PERSONAL_ACCOUNT)
-    feed_page.send_keys_to_input(AccountLocators.EMAIL, Credentials.email)
-    feed_page.send_keys_to_input(AccountLocators.PASSWORD, Credentials.password)
-    feed_page.click_on_element(AccountLocators.LOG_BUTTON)
-    yield driver
+    account_page.click_personal_account_header_button()
+    account_page.main_page_loading_wait()
+    account_page.fill_credential_email()
+    account_page.fill_credential_password()
+    account_page.click_button_login()
+    return driver
